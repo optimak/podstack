@@ -1,0 +1,35 @@
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 20px; 
+    padding: 8px;
+    width: 40rem;
+    text-align: center;
+    margin: auto;
+    margin: 1rem auto;
+}
+
+.search-input {
+    border: none;
+    border-radius: 20px; 
+    padding: 8px;
+    margin-right: 8px;
+}
+
+.select-box {
+    border: none;
+    border-radius: 20px; 
+    padding: 8px;
+    margin-right: 8px;
+}
+
+.search-button {
+    border: none;
+    border-radius: 20px; 
+    padding: 8px 16px;
+    background-color:  #434EE1; 
+    color: #fff;
+    cursor: pointer;
+}

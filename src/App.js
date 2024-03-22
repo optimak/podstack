@@ -9,9 +9,9 @@ import HomePage from './pages/HomePage/HomePage';
 function App() {
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
-        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<HomePage />} />
         {/* <Route path="/about-us" element={<AboutPage />} /> */}
         {/* <Route path="/:id" element={<DetailsPage />} /> */}
         {/* <Route path="*" element={<NotFound />} /> */}

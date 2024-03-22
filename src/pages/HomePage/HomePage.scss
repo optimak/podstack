@@ -1,0 +1,37 @@
+@use "../../styles/partials/typography" as *;
+
+.main {
+    font-family: Avenir;
+    box-sizing: border-box;
+    background-color: rgba(248, 236, 222, 0.536);
+    color: rgba(0, 0, 0, 0.658);
+    text-align: center;
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__list {
+        border: 1px solid gray;
+        border-radius: 8px;
+        margin: 1rem;
+        padding: 0.5rem 1rem;
+        width: 16rem;
+        background-color: white;
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3);
+        text-align: left;
+    }
+
+    &__subtitle {
+        font-weight: 600;
+    }
+
+    &__title {
+        padding: 1rem;
+        font-weight: 600;
+        font-size: 3rem;
+        margin: 0;
+    }
+}

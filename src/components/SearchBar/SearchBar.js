@@ -1,89 +1,83 @@
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-// function SearchBar() {
-//     const [searchQuery, setSearchQuery] = useState('');
-//     const [data, setData] = useState([]);
-//     const [filteredData, setFilteredData] = useState([]);
-//     const [sortBy, setSortBy] = useState('');
-//     const [filterBy, setFilterBy] = useState('');
+import "./SearchBar.scss"
 
-//     useEffect(() => {
-//         // Fetch data from API
-//         fetchData();
-//     }, []);
+function SearchBar({ data, onFilter }) {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [sortBy, setSortBy] = useState('');
+    const [filterByCountry, setFilterByCountry] = useState('');
 
-//     const fetchData = async () => {
-//         try {
-//             const response = await axios.get('your_api_endpoint');
-//             setData(response.data);
-//             setFilteredData(response.data); // Initially set filtered data same as fetched data
-//         } catch (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     };
+    useEffect(() => {
+        filterData();
+    }, [searchQuery, sortBy, filterByCountry]);
 
-//     const handleSearchInputChange = (event) => {
-//         setSearchQuery(event.target.value);
-//         filterData(event.target.value);
-//     };
+    const handleSearchInputChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
 
-//     const handleSortChange = (event) => {
-//         setSortBy(event.target.value);
-//         sortData(event.target.value);
-//     };
+    const handleSortChange = (event) => {
+        setSortBy(event.target.value);
+    };
 
-//     const handleFilterChange = (event) => {
-//         setFilterBy(event.target.value);
-//         filterData(searchQuery, event.target.value);
-//     };
+    const handleFilterByCountryChange = (event) => {
+        setFilterByCountry(event.target.value);
+    };
 
-//     const filterData = (searchQuery, filterBy) => {
-//         let filtered = data.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+    const handleSearchClick = () => {
+        filterData();
+    };
 
-//         if (filterBy) {
-//             filtered = filtered.filter(item => item.category === filterBy);
-//         }
+    const filterData = () => {
+        let filtered = data.filter(item => 
+            item.channel.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    
+        if (filterByCountry) {
+            filtered = filtered.filter(item => 
+                item.country && item.country.toLowerCase() === filterByCountry.toLowerCase()
+            );
+        }
+    
+        if (sortBy === 'subscribers_low') {
+            filtered.sort((a, b) => a.subscriberCount - b.subscriberCount);
+        } else if (sortBy === 'subscribers_high') {
+            filtered.sort((a, b) => b.subscriberCount - a.subscriberCount);
+        } else if (sortBy === 'viewcount_low') {
+            filtered.sort((a, b) => a.channelViewCount - b.channelViewCount);
+        } else if (sortBy === 'viewcount_high') {
+            filtered.sort((a, b) => b.channelViewCount - a.channelViewCount);
+        }
+    
+        onFilter(filtered);
 
-//         setFilteredData(filtered);
-//     };
+        console.log(data)
+        console.log(filtered)
+    }; 
 
-//     const sortData = (sortBy) => {
-//         let sorted = [...filteredData];
+    
+    return (
+        <div className="search-bar-container">
+            <input type="text" value={searchQuery} onChange={handleSearchInputChange} className="search-input" placeholder="Search..." />
+            <select value={sortBy} onChange={handleSortChange} className="select-box">
+                <option value="">Sort By</option>
+                <option value="subscribers_low">Subscribers: Low to High</option>
+                <option value="subscribers_high">Subscribers: High to Low</option>
+                <option value="viewcount_low">View Count: Low to High</option>
+                <option value="viewcount_high">View Count: High to Low</option>
+            </select>
+            <select value={filterByCountry} onChange={handleFilterByCountryChange} className="select-box">
+                <option value="">Filter By Country</option>
+                <option value="us">US</option>
+                <option value="gb">GB</option>
+                <option value="fr">FR</option>
+                <option value="nl">NL</option>
+                <option value="in">IN</option>
+                <option value="global">Global</option>
+                {/* Add more options for countries */}
+            </select>
+            <button className="search-button" onClick={handleSearchClick}>Search</button>
+        </div>
+    );
+}
 
-//         if (sortBy === 'price_low') {
-//             sorted.sort((a, b) => a.price - b.price);
-//         } else if (sortBy === 'price_high') {
-//             sorted.sort((a, b) => b.price - a.price);
-//         }
-
-//         setFilteredData(sorted);
-//     };
-
-//     return (
-//         <div>
-//             <input type="text" value={searchQuery} onChange={handleSearchInputChange} placeholder="Search..." />
-//             <select value={sortBy} onChange={handleSortChange}>
-//                 <option value="">Sort By</option>
-//                 <option value="price_low">Price Low to High</option>
-//                 <option value="price_high">Price High to Low</option>
-//             </select>
-//             <select value={filterBy} onChange={handleFilterChange}>
-//                 <option value="">Filter By</option>
-//                 <option value="category1">Category 1</option>
-//                 <option value="category2">Category 2</option>
-//                 {/* Add more options for categories */}
-//             </select>
-//             <button>Search</button>
-
-//             {/* Display filtered data */}
-//             <ul>
-//                 {filteredData.map(item => (
-//                     <li key={item.id}>{item.name} - {item.price}</li>
-//                 ))}
-//             </ul>
-//         </div>
-//     );
-// }
-
-// export default SearchBar;
+export default SearchBar;
