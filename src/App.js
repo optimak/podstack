@@ -12,9 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/about-us" element={<AboutPage />} /> */}
-        {/* <Route path="/:id" element={<DetailsPage />} /> */}
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="/:id" element={<DetailsPage />} />
       </Routes>
     </BrowserRouter>
   );
