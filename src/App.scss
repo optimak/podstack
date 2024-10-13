@@ -1,0 +1,16 @@
+@use "./styles/partials/typography" as *;
+@use './styles/partials/mixins.scss' as *;
+@use './styles/partials/variables.scss' as *;
+
+html,body {
+    margin: 0;
+    height: 100%;
+    overflow-x: hidden;
+
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    background: radial-gradient(circle at 10% 20%, #342773, #271173, #0a0f4c);
+    color: white; // Optional: Change text color for better visibility
+    font-family: Pattarankarn; // Optional: Change font
+  }

@@ -1,19 +1,105 @@
 @use "../../styles/partials/typography" as *;
+@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    // background: radial-gradient(circle at 0% 0%, #342773, #271173, #0a0f4c);
+    background: radial-gradient(circle at 10% 20%, #342773, #271173, #0a0f4c);
+
+    position: fixed; // Fix the navbar position
+    top: 0; // Stick to the top
+    left: 0; // Align to the left edge
+    position: fixed; // Fix the navbar position
+
+    width: 100%; // Full width across the screen
+
+
+    z-index: 1000;
+    border-bottom: 1px solid #ffffff;
+
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-evenly;
+        // background: radial-gradient(circle at 0% 0%, #342773, #271173, #0a0f4c);
+        background: radial-gradient(circle at 10% 20%, #342773, #271173, #0a0f4c);
+
+        position: fixed; // Fix the navbar position
+        top: 0; // Stick to the top
+        left: 0; // Align to the left edge
+        position: fixed; // Fix the navbar position
+
+        width: 100%; // Full width across the screen
+
+
+        z-index: 1000;
+        border-bottom: 1px solid #ffffff;
+    }
+
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-evenly;
+        // background: radial-gradient(circle at 0% 0%, #342773, #271173, #0a0f4c);
+        background: radial-gradient(circle at 10% 20%, #342773, #271173, #0a0f4c);
+
+        position: fixed; // Fix the navbar position
+        top: 0; // Stick to the top
+        left: 0; // Align to the left edge
+        position: fixed; // Fix the navbar position
+
+        width: 100%; // Full width across the screen
+
+
+        z-index: 1000;
+        border-bottom: 1px solid #ffffff;
+    }
 
     &__link {
-        color: black;
+        color: white;
         text-decoration: none;
-        font-family: Avenir;
-        font-weight: 500;
+        font-family: Pattanakarn;
+        font-weight: 400;
+
+        &:hover {
+            color: #b5b5f4; // Change background color on hover
+            cursor: pointer; // Pointer cursor on hover
+
+        }
     }
 
     &__menu {
         display: flex;
+        width: 73vw;
         align-items: center;
+        padding-right: 26px;
+        justify-content: space-evenly;
+        border-top: 0.05px solid rgb(88, 77, 119);
+        padding: 1rem 0;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            padding-right: 26px;
+            border-top: none;
+            width: fit-content;
+
+        }
+
+        @include desktop {
+            display: flex;
+            padding-right: 26px;
+            border-top: none;
+            width: fit-content;
+
+            align-items: center;
+            padding-right: 26px;
+        }
     }
 
     &__button {
@@ -26,8 +112,49 @@
         margin: 0 1rem;
     }
 
+    .styled-link {
+        display: inline-block; // Allows padding and block-like behavior
+        text-decoration: none; // Remove default underline
+        border: none; // Remove border
+        border-radius: 10px; // Rounded corners
+        padding: 8px 16px; // Padding like a button
+        background-color: #594ae7; // Background color
+        color: #fff; // Text color
+        font-size: 12px; // Font size
+        font-family: Avenir;
+        font-weight: 500;
+        cursor: pointer; // Pointer cursor on hover
+        transition: background-color 0.3s, box-shadow 0.3s; // Transition effects
+
+        // Hover effect
+        &:hover {
+            background-color: #4747dc; // Change background color on hover
+            box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3); // Shadow on hover
+            cursor: pointer; // Pointer cursor on hover
+
+        }
+
+        // Focus effect
+        &:focus {
+            outline: none; // Remove outline
+            box-shadow: 0 0 0 3px rgba(64, 184, 245, 0.5); // Glow effect on focus
+            cursor: pointer; // Pointer cursor on hover
+
+        }
+
+        @include tablet  {
+            font-size: 16px;
+        }
+
+        @include  desktop {
+            font-size: 16px;
+
+        }
+    }
+
     &__logo {
-        margin: 1rem;
+        margin: 0.5rem;
+        width: 15rem;
     }
 
     &__icon {
@@ -38,7 +165,13 @@
 
     &__link {
         margin: 0 1rem;
+        display: flex;
+
+
     }
 
-    
+    &__container {
+        display: flex;
+    }
+
 }

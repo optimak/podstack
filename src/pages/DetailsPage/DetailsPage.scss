@@ -1,36 +1,99 @@
 @use "../../styles/partials/typography" as *;
+@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
 
 .details {
     border-top: 2px solid #434de1;
-    font-family: "Avenir";
-    background-color: rgba(248, 236, 222, 0.536);
+    font-family: "Pattanakarn";
+    // background-color: rgba(248, 236, 222, 0.536);
     color: rgba(0, 0, 0, 0.658);
     // padding-bottom: 5rem;
     height: 100vh;
+    padding-top: 200px;
+    background: radial-gradient(circle at 10% 20%, #342773, #271173, #0a0f4c);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    @include tablet {
+        width: 100%;
+        padding-top: 90px;
+
+    }
+
+    @include desktop {
+
+        width: 100%;
+        padding-top: 90px;
+
+
+
+    }
 
 }
 
 .details__title {
-    padding: 3rem;
     // padding-bottom: 1rem;
     text-align: center;
+    color: #fff;
+
+    padding: 1rem;
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 0;
+    text-shadow: 0 1px 1px rgba(32, 137, 158, 0.76),
+        0 1px 1px rgba(32, 137, 158, 0.76),
+        0 1.5px 1.5px rgba(32, 137, 158, 0.76),
+        0 2px 2px rgba(32, 137, 158, 0.76);
+    animation: glowing 1.75s infinite alternate;
+
+
 }
 
 .details__container {
     // box-sizing: border-box;
     background-color: #b6bcf7;
     display: flex;
-    width: 90vw;
+    width: 74vw;
     // padding: 5rem;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
 
-    margin: 0 auto;
+    // margin: 0 auto;
 
     // margin-top: 3rem;
+    @include tablet {
+        width: 80vw;
+        margin-bottom: 15vw;
+        max-width: 840px ; // 
+
+
+    }
+
+    @include desktop {
+        // width: 90vw;
+        margin-bottom: 15vw;
+
+
+    }
+
     & img {
-        padding: 2rem;
+        width: 30vw;
+        padding: 1rem;
+        box-sizing: border-box;
+
+        @include tablet {
+            width: 35vw;
+
+
+        }
+
+        @include desktop {
+            width: 45vw;
+
+
+
+        }
     }
 
     &-wrapper {
@@ -51,13 +114,40 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-         & h2 {
+
+        & h2 {
             color: #434de1;
-            font-size: 36px;
+            font-size: 28px;
+
+            @include tablet {
+                font-size: 36px;
+
+
+            }
+
+            @include desktop {
+                font-size: 36px;
+
+
+
+            }
         }
 
         & p {
-            font-size: 24px;
+            font-size: 18px;
+
+            @include tablet {
+                font-size: 28px;
+
+
+            }
+
+            @include desktop {
+                font-size: 36px;
+
+
+
+            }
         }
     }
 }

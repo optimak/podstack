@@ -42,7 +42,6 @@ function HomePage() {
         setFilteredPodcasts(filteredData);
     };
 
-    console.log(filteredPodcasts)
 
     return (
         <div className="main">
@@ -51,7 +50,7 @@ function HomePage() {
                 <p>Loading...</p>
             ) : (
                 <div className="main__search">
-                    <SearchBar data={podcasts} onFilter={filterPodcasts} />
+                    <SearchBar key={podcasts.id} data={podcasts} onFilter={filterPodcasts} />
                     <div className="main__container">
                         {filteredPodcasts.map(podcast => (
                             <Link to={`/${podcast.id}`} >

@@ -1,35 +1,191 @@
+@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+
 .search-bar-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     border: 1px solid #ccc;
-    border-radius: 20px; 
-    padding: 8px;
-    width: 40rem;
+    border-radius: 20px;
+    padding: 12px;
+    width: 73vw;
     text-align: center;
     margin: auto;
     margin: 1rem auto;
+
+    @include tablet {
+        width: 60vw;
+        flex-direction: row;
+    }
+
+    @include desktop {
+        flex-direction: row;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 12px;
+        width: 47rem;
+        text-align: center;
+        margin: auto;
+        margin: 1rem auto;
+    }
 }
 
 .search-input {
     border: none;
-    border-radius: 20px; 
+    border-radius: 20px;
     padding: 8px;
     margin-right: 8px;
+    height: 1.05rem;
+    width: 35vw;
+    margin-bottom: 0.6rem;
+    font-size: 13px;
+
+    &::placeholder {
+        color: #271173;
+        // text-align: center; 
+        font-size: 13px;
+    }
+
+    @include tablet {
+        border: none;
+        border-radius: 20px;
+        padding: 8px;
+        margin-right: 8px;
+        height: 1.75rem;
+        font-size: 13px;
+        margin-bottom: 0;
+        width:fit-content;
+
+
+        &::placeholder {
+            color: #271173;
+            // text-align: center; 
+            font-size: 13px;
+        }
+    }
+
+    @include desktop {
+        border: none;
+        border-radius: 20px;
+        padding: 8px;
+        margin-right: 8px;
+        height: 1.75rem;
+        margin-bottom: 0;
+
+
+        &::placeholder {
+            color: #271173;
+            // text-align: center; 
+            font-size: 1rem;
+        }
+    }
 }
 
+// .select-box {
+//     border: none;
+//     border-radius: 20px; 
+//     padding: 8px;
+//     margin-right: 8px;
+// }
 .select-box {
-    border: none;
-    border-radius: 20px; 
-    padding: 8px;
-    margin-right: 8px;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+    appearance: none; // Remove default styling
+    width: 100%;
+    padding: 12px 20px; // Adjust padding for spacing
+    font-size: 13px; // Font size
+    color: #333; // Text color
+    background-color: #f9f9f9; // Background color
+    border: 1px solid #ccc; // Border color
+    border-radius: 5px; // Rounded corners
+    outline: none; // Remove outline on focus
+    cursor: pointer; // Pointer cursor on hover
+    transition: border-color 0.3s, box-shadow 0.3s; // Transition effects
+
+    // Add hover and focus styles
+    &:hover,
+    &:focus {
+        border-color: #55e6fd;
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    @include tablet {
+        appearance: none; // Remove default styling
+        width: 100%;
+        padding: 12px 20px; // Adjust padding for spacing
+        font-size: 13px; // Font size
+        color: #333; // Text color
+        background-color: #f9f9f9; // Background color
+        border: 1px solid #ccc; // Border color
+        border-radius: 5px; // Rounded corners
+        outline: none; // Remove outline on focus
+        cursor: pointer; // Pointer cursor on hover
+        transition: border-color 0.3s, box-shadow 0.3s; // Transition effects
+margin: 0 0.5rem;
+        // Add hover and focus styles
+        &:hover,
+        &:focus {
+            border-color: #55e6fd;
+            box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    }
+
+    @include desktop {
+        appearance: none; // Remove default styling
+        width: 100%;
+        padding: 12px 20px; // Adjust padding for spacing
+        font-size: 16px; // Font size
+        color: #333; // Text color
+        background-color: #f9f9f9; // Background color
+        border: 1px solid #ccc; // Border color
+        border-radius: 5px; // Rounded corners
+        outline: none; // Remove outline on focus
+        cursor: pointer; // Pointer cursor on hover
+        transition: border-color 0.3s, box-shadow 0.3s; // Transition effects
+        margin: 0 0.5rem;
+
+        // Add hover and focus styles
+        &:hover,
+        &:focus {
+            border-color: #55e6fd;
+            box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    }
 }
 
+// .search-button {
+//     border: none;
+//     border-radius: 10px; 
+//     padding: 8px 16px;
+//     background-color:  #40b8f5; 
+//     color: #fff;
+//     cursor: pointer;
+// }
 .search-button {
-    border: none;
-    border-radius: 20px; 
-    padding: 8px 16px;
-    background-color:  #434EE1; 
-    color: #fff;
-    cursor: pointer;
+    border: none; // Remove default border
+    border-radius: 10px; // Rounded corners
+    padding: 8px 16px; // Padding for button size
+    background-color: #594ae7; // Background color
+    color: #fff; // Text color
+    cursor: pointer; // Pointer cursor on hover
+    font-size: 16px; // Font size
+    transition: background-color 0.3s, box-shadow 0.3s; // Transition effects
+
+    // Hover effect
+    &:hover {
+        background-color: #4747dc; // Change background color on hover
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3); // Shadow on hover
+        cursor: pointer;
+    }
+
+    // Focus effect
+    &:focus {
+        outline: none; // Remove outline
+        box-shadow: 0 0 0 3px rgba(64, 184, 245, 0.5); // Glow effect on focus
+        cursor: pointer;
+    }
 }

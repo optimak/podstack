@@ -6,7 +6,35 @@ function SearchBar({ data, onFilter }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [sortBy, setSortBy] = useState('');
     const [filterByCountry, setFilterByCountry] = useState('');
+    const filterData = () => {
+        let filtered = data.filter(item =>
+            item.channel.toLowerCase().includes(searchQuery.toLowerCase())
+        );
 
+        if (filterByCountry) {
+            filtered = filtered.filter(item =>
+                item.country && item.country.toLowerCase() === filterByCountry.toLowerCase()
+            );
+        }
+
+        if (sortBy === 'subscribers_low') {
+            filtered.sort((a, b) => a.subscriberCount - b.subscriberCount);
+        } else if (sortBy === 'subscribers_high') {
+            filtered.sort((a, b) => b.subscriberCount - a.subscriberCount);
+        } else if (sortBy === 'viewcount_low') {
+            filtered.sort((a, b) => a.channelViewCount - b.channelViewCount);
+        } else if (sortBy === 'viewcount_high') {
+            filtered.sort((a, b) => b.channelViewCount - a.channelViewCount);
+        }
+
+        onFilter(filtered);
+
+        //     console.log(data)
+        //     console.log(filtered)
+    };
+    const handleSearchClick = () => {
+        filterData();
+    };
     useEffect(() => {
         filterData();
     }, [searchQuery, sortBy, filterByCountry]);
@@ -23,41 +51,14 @@ function SearchBar({ data, onFilter }) {
         setFilterByCountry(event.target.value);
     };
 
-    const handleSearchClick = () => {
-        filterData();
-    };
 
-    const filterData = () => {
-        let filtered = data.filter(item => 
-            item.channel.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-    
-        if (filterByCountry) {
-            filtered = filtered.filter(item => 
-                item.country && item.country.toLowerCase() === filterByCountry.toLowerCase()
-            );
-        }
-    
-        if (sortBy === 'subscribers_low') {
-            filtered.sort((a, b) => a.subscriberCount - b.subscriberCount);
-        } else if (sortBy === 'subscribers_high') {
-            filtered.sort((a, b) => b.subscriberCount - a.subscriberCount);
-        } else if (sortBy === 'viewcount_low') {
-            filtered.sort((a, b) => a.channelViewCount - b.channelViewCount);
-        } else if (sortBy === 'viewcount_high') {
-            filtered.sort((a, b) => b.channelViewCount - a.channelViewCount);
-        }
-    
-        onFilter(filtered);
 
-        console.log(data)
-        console.log(filtered)
-    }; 
 
-    
+
+
     return (
         <div className="search-bar-container">
-            <input type="text" value={searchQuery} onChange={handleSearchInputChange} className="search-input" placeholder="Search..." />
+            <input type="text" value={searchQuery} onChange={handleSearchInputChange} className="search-input" placeholder="  Search..." />
             <select value={sortBy} onChange={handleSortChange} className="select-box">
                 <option value="">Sort By</option>
                 <option value="subscribers_low">Subscribers: Low to High</option>

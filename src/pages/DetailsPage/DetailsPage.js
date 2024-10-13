@@ -8,12 +8,12 @@ import './DetailsPage.scss'
 function DetailsPage() {
     const [podcasterData, setPodcasterData] = useState([]);
     const { id } = useParams();
-    console.log(id)
+
     useEffect(() => {
         async function getPodcaster() {
             try {
                 const response = await axios.get(`${baseUrl}/podcasters/${id}`);
-                console.log(response.data)
+                // console.log(response.data)
                 setPodcasterData(response.data[0])
             } catch (error) {
                 console.log(error)
