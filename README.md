@@ -22,8 +22,10 @@
 
 - **Frontend**: JavaScript, React
 - **Backend**: Node.js, Express, cron
+- **API and API Testing**: Youtube Data API, Postman
 - **Database**: MySQL
 - **Containerization**: Docker
+- **Deployment**: Render
 
 ## 📖 Getting Started
 
