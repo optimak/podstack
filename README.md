@@ -7,7 +7,7 @@
 
 ## 🚀 24-Hour Hackathon Winner! 🏆
 
-**Grand Prize Winner** at the BrainStation Hackathon with a **$3,500 prize** ! 🎉
+**Grand Prize Winner** at the BrainStation Hackathon with a ** ~$10,000 prize** ! 🎉
 
 ## 🌟 Features
 
