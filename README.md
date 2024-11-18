@@ -1,5 +1,5 @@
 
-# 🎙️ Podstack - Find Trendy Tech Podcasts 🌟
+# 🎙️ Podstack - Find Trending Tech Podcasts 🌟
 
  [**Podstack**](https://podstack.chiaghaizu.com), is the  platform connecting tech brands to high performing tech podcasters from Youtube! Backend found [here](https://github.com/optimak/podstack-backend/tree/main)
 
