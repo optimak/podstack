@@ -1,7 +1,7 @@
 
-# 🎙️ Podstack - Your Ultimate Podcast Companion 🌟
+# 🎙️ Podstack - Find Trendy Tech Podcasts 🌟
 
- [**Podstack**](https://podstack.chiaghaizu.com), is the  platform connecting tech brands to high performing tech podcasters from Youtube!
+ [**Podstack**](https://podstack.chiaghaizu.com), is the  platform connecting tech brands to high performing tech podcasters from Youtube! Backend found [here](https://github.com/optimak/podstack-backend/tree/main)
 
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnF0YnJydmVqcmg3eGQzeHNyam44dXc3OXd3Mmg3cXczMmt3NTlqdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/PGIw3NNU78NBdUOiAA/giphy.webp" alt="arrow" width="45"/>
 
